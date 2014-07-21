@@ -15,9 +15,6 @@
 
   ga('create', 'UA-52666621-1', 'auto');
   ga('send', 'pageview');
-  _gaq.push(['_trackPageview', url: 'http://karel-murgas.cz/thankyou.html?']);
-
-
 </script>
 </head>
 
@@ -76,7 +73,7 @@
 			</div>
 			<div class="text-center"><a href="./thankyou.html?price=799" class="btn btn-primary" id="submitButton"><h3>Submit Reservation</h3></a></div>
 		</div>
-        <footer class="footer">
+    <footer class="footer">
 			<p class="pull-right"><a href="#">Back to top</a></p>
 			<p>This is a demo site designed to showcase GTM.</p>
 		</footer>
@@ -96,6 +93,50 @@
 		function fireTags() {
 			console.log('fire tags');
 		}
+    $('#submitButton').on('click', function(event) {
+//      event.preventDefault();
+//       setTimeout(function () {
+//         document.location = event.target.attr("href");
+//       }, 500);
+      var pocet = $('#travellers').val();
+      ga('require', 'ecommerce');
+      var ecomID = Math.floor((Math.random() * 1000000) + 1);
+      ga('ecommerce:addTransaction',{
+        'id': ecomID,
+        'affiliation': 'Karlova Luxury Travel Site' 
+      });
+      ga('ecommerce:addItem', {
+        'id': ecomID,
+        'name': location,
+        'category': 'destination',
+        'price': '799',
+        'quantity': pocet
+      });
+      var location;
+      switch(window.location.hash){
+        case "#switzerland":
+          location = "Switzerland";
+          break;
+        case "#puertorico":
+          location = "Puerto Ricco";
+          break;
+        case "#providence":
+          location = "Providence";
+          break;
+        case "#sanfrancisco":
+          location = "San Francisco";
+          break;
+        case "":
+          location = "Undefined";
+          break;         
+      }
+      ga('ecommerce:send'); 
+      ga('send', 'event', 'Reservation', 'Submit', location, {'metric1' : pocet, 'metric2' : 799 * pocet});
+//       , function() {
+//           document.location = event.target.attr("href"));
+      });
+      
+    });
 	</script>
 </body>
 </html>
