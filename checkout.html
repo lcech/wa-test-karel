@@ -94,10 +94,7 @@
 			console.log('fire tags');
 		}
     $('#submitButton').on('click', function(event) {
-//      event.preventDefault();
-//       setTimeout(function () {
-//         document.location = event.target.attr("href");
-//       }, 500);
+      event.preventDefault();
       var pocet = $('#travellers').val();
       ga('require', 'ecommerce');
       var ecomID = Math.floor((Math.random() * 1000000) + 1);
@@ -130,11 +127,18 @@
           location = "Undefined";
           break;         
       }
-      ga('ecommerce:send'); 
-      ga('send', 'event', 'Reservation', 'Submit', location, {'metric1' : pocet, 'metric2' : 799 * pocet});
-//       , function() {
-//           document.location = event.target.attr("href"));
-      });
+      ga('ecommerce:send');
+//      ga('send', 'event', 'Reservation', 'Submit', location, {'metric1' : pocet, 'metric2' : 799 * pocet}); 
+//      ga('send', 'event', 'Reservation', 'Submit', location, {'metric1' : pocet, 'metric2' : 799 * pocet}, function() {
+//         document.location = event.target.attr("href");
+//       });
+//      ga('send', 'event', 'Reservation', 'Submit', location, {'metric1' : pocet, 'metric2' : 799 * pocet}, function() {
+//         document.location = $(event.currentTarget).attr("href");
+//       });
+     ga('send', 'event', 'Reservation', 'Submit', location, {
+     'hitCallback': function() {
+        document.location = $(event.currentTarget).attr("href");
+      }});
       
     });
 	</script>

@@ -52,7 +52,7 @@
 							<h3>Switzerland</h3>
 							Vivamus dictum dictum felis ut dignissim. Ut nibh lectus, mollis ac laoreet ut, scelerisque congue ligula. Morbi gravida felis velit.
 							<br/><br/>
-							<a class="btn btn-primary" href="#switzerland" onClick="ga('send', 'event', 'Destination', 'View', 'Switzerland');">Details</a>
+							<a class="btn btn-primary" href="#switzerland">Details</a>
 						</li>
 					</ul>
 				</div>
@@ -68,7 +68,7 @@
 							<h3>Puerto Rico</h3>
 							Vivamus dictum dictum felis ut dignissim. Ut nibh lectus, mollis ac laoreet ut, scelerisque congue ligula. Morbi gravida felis velit.
 							<br/><br/>
-							<a class="btn btn-primary" href="#puertorico" onClick="ga('send', 'event', 'Destination', 'View', 'Puerto Rico');">Details</a>
+							<a class="btn btn-primary" href="#puertorico">Details</a>
 						</li>
 						<li class="span3"><div class="thumbnail"><img src="./img/pr_3.jpg" alt=""></div></li>
 					</ul>
@@ -84,7 +84,7 @@
 							<h3>Providence</h3>
 							Vivamus dictum dictum felis ut dignissim. Ut nibh lectus, mollis ac laoreet ut, scelerisque congue ligula. Morbi gravida felis velit.
 							<br/><br/>
-							<a class="btn btn-primary" href="#providence" onClick="ga('send', 'event', 'Destination', 'View', 'Providence');">Details</a>
+							<a class="btn btn-primary" href="#providence">Details</a>
 						</li>
 						<li class="span3"><div class="thumbnail"><img src="./img/prov_2.jpg" alt=""></div></li>
 						<li class="span3"><div class="thumbnail"><img src="./img/prov_3.jpg" alt=""></div></li>
@@ -100,7 +100,7 @@
 							<h3>San Francisco</h3>
 							Vivamus dictum dictum felis ut dignissim. Ut nibh lectus, mollis ac laoreet ut, scelerisque congue ligula. Morbi gravida felis velit.
 							<br/><br/>
-							<a class="btn btn-primary" href="#sanfrancisco" onClick="ga('send', 'event', 'Destination', 'View', 'San Francisco');">Details</a>
+							<a class="btn btn-primary" href="#sanfrancisco">Details</a>
 						</li>
 						<li class="span3"><div class="thumbnail"><img src="./img/sf_1.jpg" alt=""></div></li>
 						<li class="span3"><div class="thumbnail"><img src="./img/sf_2.jpg" alt=""></div></li>
@@ -229,6 +229,25 @@
 		var firstLoad = true;
 		function fireTags() {
 			console.log('fire tags');
+      var location;
+      switch(window.location.hash){
+        case "#switzerland":
+          location = "Switzerland";
+          break;
+        case "#puertorico":
+          location = "Puerto Ricco";
+          break;
+        case "#providence":
+          location = "Providence";
+          break;
+        case "#sanfrancisco":
+          location = "San Francisco";
+          break;
+        case "":
+          location = "Undefined";
+          break;         
+      }
+      ga('send', 'event', 'Destination', 'View', location);
 		}
 		function load(dest) {
 			$('#content > *').hide();
