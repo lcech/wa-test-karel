@@ -7,64 +7,6 @@
 	<link rel="stylesheet" href="./css/style.css" type="text/css" />
 	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" type="text/css" />
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-52666621-1', 'auto');
-  ga('send', 'pageview');
-  
-  // parsování URL
-  var params = {};
-
-  if (location.search) {
-    var parts = location.search.substring(1).split('&');
-
-    for (var i = 0; i < parts.length; i++) {
-        var nv = parts[i].split('=');
-        if (!nv[0]) continue;
-        params[nv[0]] = nv[1] || true;
-    }
-  }         //data z URL jsou v params.[parametr]
-  
-    var pocet = params.travellers;
-    var destination;
-    switch(params.destination){
-      case "switzerland":
-        destination = "Switzerland";
-        break;
-      case "puertorico":
-        destination = "Puerto Ricco";
-        break;
-      case "providence":
-        destination = "Providence";
-        break;
-      case "sanfrancisco":
-        destination = "San Francisco";
-        break;
-      case "":
-        destination = "Undefined";
-        break;         
-      }
-       ga('require', 'ecommerce');
-       var ecomID = Math.floor((Math.random() * 1000000) + 1);
-       ga('ecommerce:addTransaction',{
-         'id': ecomID,
-         'affiliation': 'Karlova Luxury Travel Site' 
-       });
-       ga('ecommerce:addItem', {
-         'id': ecomID,
-         'name': destination,
-         'category': 'destination',
-         'price': '799',
-         'quantity': pocet
-       });
-      ga('ecommerce:send');
-      ga('send', 'event', 'Reservation', 'Submit', destination, {'metric1': pocet, 'metric2': pocet * 799});
-  
-</script>
 </head>
 <body>
 	<div class="navbar navbar-fixed-top">
