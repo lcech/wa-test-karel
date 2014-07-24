@@ -11,6 +11,9 @@
 </head>
 
 <body>
+    <script>
+      dataLayer = [];
+    </script>
     <!-- Google Tag Manager -->
       <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MKTMQV"
       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -125,7 +128,7 @@
 						</div>
 						<div style="text-align:right;">
 							<h4 style="padding-bottom:5px;">$799 / 6 Nights</h4>
-							<a href="./checkout.html" class="btn btn-primary">Book Now!</a>
+							<a href=/checkout.html#switzerland class="btn btn-primary">Book Now!</a>
 						</div>
 					</div>
 					<div class="span6">
@@ -151,7 +154,7 @@
 						</div>
 						<div style="text-align:right;">
 							<h4 style="padding-bottom:5px;">$799 / 6 Nights</h4>
-							<a href="./checkout.html" class="btn btn-primary">Book Now!</a>
+							<a href=/checkout.html#puertorico class="btn btn-primary">Book Now!</a>
 						</div>
 					</div>
 					<div class="span6">
@@ -177,7 +180,7 @@
 						</div>
 						<div style="text-align:right;">
 							<h4 style="padding-bottom:5px;">$799 / 6 Nights</h4>
-							<a href="./checkout.html" class="btn btn-primary">Book Now!</a>
+							<a href=/checkout.html#providence class="btn btn-primary">Book Now!</a>
 						</div>
 					</div>
 					<div class="span6">
@@ -203,7 +206,7 @@
 						</div>
 						<div style="text-align:right;">
 							<h4 style="padding-bottom:5px;">$799 / 6 Nights</h4>
-							<a href="./checkout.html" class="btn btn-primary">Book Now!</a>
+							<a href=/checkout.html#sanfrancisco class="btn btn-primary">Book Now!</a>
 						</div>
 					</div>
 					<div class="span6">
@@ -229,6 +232,25 @@
 		var firstLoad = true;
 		function fireTags() {
 			console.log('fire tags');
+            var destination;
+            switch(window.location.hash){
+              case "#switzerland":
+                destination = "Switzerland";
+                break;
+              case "#puertorico":
+                destination = "Puerto Ricco";
+                break;
+              case "#providence":
+                destination = "Providence";
+                break;
+              case "#sanfrancisco":
+                destination = "San Francisco";
+                break;
+              case "":
+                destination = "Undefined";
+                break;         
+            }
+            dataLayer.push({'event': 'destinationView', 'eventLabel': destination});
 		}
 		function load(dest) {
 			$('#content > *').hide();
