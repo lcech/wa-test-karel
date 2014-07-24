@@ -229,7 +229,7 @@
 	<script src="./js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-		var firstLoad = true;
+//		var firstLoad = true;
 		function fireTags() {
 			console.log('fire tags');
             var destination;
@@ -265,10 +265,10 @@
 			else
 				$('#content-chooser').fadeIn();
 			
-			if (!firstLoad)
+//			if (!firstLoad)
 				fireTags();
-			else
-				firstLoad = false;
+//			else
+//				firstLoad = false;
 		}
 		function processHashtag() {
 			if (window.location.hash != "")
