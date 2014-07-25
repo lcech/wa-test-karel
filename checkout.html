@@ -83,16 +83,61 @@
 	<script src="./js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
+      $('#submitButton').attr('href',"./thankyou.html?price=799" + "&destination=" + window.location.hash.substring(1) + "&travellers=1");
 		$('#travellers').on('change', function() {
-            var totalCost = 799 * $(this).val();
+			var pocet = $(this).val();
+	        var totalCost = 799 * pocet;
 			$('#price').html(totalCost);
-			$('#submitButton').attr('href',"./thankyou.html?price=" + totalCost];
+			$('#submitButton').attr('href',"./thankyou.html?price=" + totalCost + "&destination=" + window.location.hash.substring(1) + "&travellers=" + pocet);
 			if (totalCost > 1000)
 				fireTags();
 		});
 		function fireTags() {
 			console.log('fire tags');
 		}
+//      $('#submitButton').on('click', function(event) {
+// 		var pocet = $(this).val();
+//         var totalCost = 799 * pocet;
+//         var destination;
+//         switch(window.location.hash){
+//           case "#switzerland":
+//             destination = "Switzerland";
+//             break;
+//           case "#puertorico":
+//             destination = "Puerto Ricco";
+//             break;
+//           case "#providence":
+//             destination = "Providence";
+//             break;
+//           case "#sanfrancisco":
+//             destination = "San Francisco";
+//             break;
+//           case "":
+//             destination = "Undefined";
+//             break;         
+//         }
+//         dataLayer.push({'travellers': pocet, 'totalCost': totalCost, 'destination': destination}, 'event': 'reserved')
+//       event.preventDefault();
+//       var pocet = $('#travellers').val();
+//       ga('require', 'ecommerce');
+//       var ecomID = Math.floor((Math.random() * 1000000) + 1);
+//       ga('ecommerce:addTransaction',{
+//         'id': ecomID,
+//         'affiliation': 'Karlova Luxury Travel Site' 
+//       });
+//       ga('ecommerce:addItem', {
+//         'id': ecomID,
+//         'name': location,
+//         'category': 'destination',
+//         'price': '799',
+//         'quantity': pocet
+//       });
+//      ga('send', 'event', 'Reservation', 'Submit', location, {
+//      'hitCallback': function() {
+//         document.location = $(event.currentTarget).attr("href")+"&destination="+window.location.hash.substring(1)+"&travellers="+pocet;
+//       }});
+//      
+//    });
 	</script>
 </body>
 </html>

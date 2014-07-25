@@ -9,6 +9,54 @@
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
 </head>
 <body>
+    <script> // parsování URL
+        var params = {};
+        if (location.search) {
+            var parts = location.search.substring(1).split('&');
+            for (var i = 0; i < parts.length; i++) {
+                var nv = parts[i].split('=');
+                if (!nv[0]) continue;
+                params[nv[0]] = nv[1] || true;
+            }
+        }         //data z URL jsou v params.[parametr]
+        var pocet = params.travellers;
+        var destination;
+        switch(params.destination){
+            case "switzerland":
+              destination = "Switzerland";
+              break;
+            case "puertorico":
+              destination = "Puerto Ricco";
+              break;
+            case "providence":
+              destination = "Providence";
+              break;
+            case "sanfrancisco":
+              destination = "San Francisco";
+              break;
+            case "":
+              destination = "Undefined";
+              break;         
+        }
+        var ecomID = Math.floor((Math.random() * 1000000) + 1);
+        dataLayer = [{
+            'travellers': pocet,
+            'totalCost': totalCost,
+            'destination': destination,
+            'event': 'reservation'
+            'transactionId': ecomID,
+            'transactionAffiliation': 'Karlova Luxury Travell Site',
+            'transactionTotal': totalCost,
+            'transactionProducts': [{
+                'sku': params.destination,
+                'name': destination,
+                'category': 'Destination',
+                'price': 799,
+                'quantity': pocet
+            }]
+        }];
+    </script>
+
     <!-- Google Tag Manager -->
       <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MKTMQV"
       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
