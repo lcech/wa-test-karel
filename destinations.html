@@ -23,6 +23,41 @@
       '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
       })(window,document,'script','dataLayer','GTM-MKTMQV');</script>
     <!-- End Google Tag Manager -->
+    <!-- SiteCatalyst code version: H.27.2.
+      Copyright 1996-2014 Adobe, Inc. All Rights Reserved
+      More info available at http://www.omniture.com -->
+      <script language="JavaScript" type="text/javascript" src="karel.dobrejskutek.cz/js/s_code.js"></script>
+      <script language="JavaScript" type="text/javascript"><!--
+      /* You may give each page an identifying name, server, and channel on
+      the next lines. */
+      s.pageName="destinace seznam"
+      s.server=""
+      s.channel=""
+      s.pageType=""
+      s.prop1=""
+      s.prop2=""
+      s.prop3=""
+      s.prop4=""
+      s.prop5=""
+      /* Conversion Variables */
+      s.campaign=""
+      s.state=""
+      s.zip=""
+      s.events=""
+      s.products=""
+      s.purchaseID=""
+      s.eVar1=""
+      s.eVar2=""
+      s.eVar3=""
+      s.eVar4=""
+      s.eVar5=""
+      /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
+      var s_code=s.t();if(s_code)document.write(s_code)//--></script>
+      <script language="JavaScript" type="text/javascript"><!--
+      if(navigator.appVersion.indexOf('MSIE')>=0)document.write(unescape('%3C')+'\!-'+'-')
+      //--></script><noscript><img src="http://etnetera.d2.sc.omtrdc.net/b/ss/etnkmu/1/H.27.2--NS/0"
+      height="1" width="1" border="0" alt="" /></noscript><!--/DO NOT REMOVE/-->
+    <!-- End SiteCatalyst code version: H.27.2. -->
 	<div class="navbar navbar-fixed-top">
 		<div class="navbar-inner">
 			<div class="container">
@@ -230,27 +265,12 @@
 	<script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 //		var firstLoad = true;
-		function fireTags() {
+		function fireTags(dest) {
 			console.log('fire tags');
-            var destination;
-            switch(window.location.hash){
-              case "#switzerland":
-                destination = "Switzerland";
-                break;
-              case "#puertorico":
-                destination = "Puerto Ricco";
-                break;
-              case "#providence":
-                destination = "Providence";
-                break;
-              case "#sanfrancisco":
-                destination = "San Francisco";
-                break;
-              case "":
-                destination = "Undefined";
-                break;         
-            }
-            dataLayer.push({'event': 'destinationView', 'eventLabel': destination});
+            dataLayer.push({'event': 'destinationView', 'eventLabel': dest});
+            s.pageName = 'view ' + dest;
+            s.products = dest;
+            t();
 		}
 		function load(dest) {
 			$('#content > *').hide();
@@ -266,7 +286,7 @@
 				$('#content-chooser').fadeIn();
 			
 //			if (!firstLoad)
-				fireTags();
+				fireTags(dest);
 //			else
 //				firstLoad = false;
 		}
