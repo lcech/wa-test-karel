@@ -39,8 +39,8 @@
       s.campaign=""
       s.state=""
       s.zip=""
-      s.events=""
-      s.products=""
+      s.events="scAdd"
+      s.products=";"+window.location.hash.substring(1);
       s.purchaseID=""
       s.eVar1=""
       s.eVar2=""
@@ -124,11 +124,15 @@
 	        var totalCost = 799 * pocet;
 			$('#price').html(totalCost);
 			$('#submitButton').attr('href',"./thankyou.html?price=" + totalCost + "&destination=" + window.location.hash.substring(1) + "&travellers=" + pocet);
-			if (totalCost > 1000)
-				fireTags();
+//			if (totalCost > 1000)
+				fireTags(pocet);
 		});
-		function fireTags() {
+		function fireTags(pocet) {
 			console.log('fire tags');
+            s.eVar1 = pocet;
+            s.prop1 = pocet;
+            s.events = "";
+            s.tl();
 		}
 //      $('#submitButton').on('click', function(event) {
 // 		var pocet = $(this).val();

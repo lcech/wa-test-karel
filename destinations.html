@@ -30,7 +30,7 @@
       <script language="JavaScript" type="text/javascript"><!--
       /* You may give each page an identifying name, server, and channel on
       the next lines. */
-      s.pageName="destinace seznam"
+      s.pageName="destinations"
       s.server=""
       s.channel=""
       s.pageType=""
@@ -268,9 +268,10 @@
 		function fireTags(dest) {
 			console.log('fire tags');
             dataLayer.push({'event': 'destinationView', 'eventLabel': dest});
-            s.pageName = 'view ' + dest;
-            s.products = dest;
-            t();
+            s.pageName = (dest == "") ? 'destinations' : 'view ' + dest;
+            s.events = "prodView";
+            s.products = ";" + dest;
+            s.t();
 		}
 		function load(dest) {
 			$('#content > *').hide();
