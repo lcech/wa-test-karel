@@ -7,9 +7,22 @@
 	<link rel="stylesheet" href="./css/style.css" type="text/css" />
 	<link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" type="text/css" />
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
+    <!--Fingerprint-->
+    <style type="text/css">
+    body{
+    font-family: 'Sans'
+    }
+    </style>
+    <script src="/js/fingerprint.js"></script>
+    <!--/Fingerprint-->
 </head>
 
 <body>
+    <!--Fingerprint-->
+    <script>
+        var fp = new Fingerprint({canvas: true, ie_activex: true, screen_resolution: true});
+    </script>    
+    <!--/Fingerprint-->
     <!-- Google Tag Manager -->
       <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MKTMQV"
       height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -43,7 +56,7 @@
       s.products=";"+window.location.hash.substring(1);
       s.purchaseID=""
       s.eVar1=""
-      s.eVar2=""
+      s.eVar2=fp.get();
       s.eVar3=""
       s.eVar4=""
       s.eVar5=""
