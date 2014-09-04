@@ -8,7 +8,7 @@ var s=s_gi(s_account)
 /* You may add or alter any code config here. */
 s.charSet="UTF-8"
 /* Conversion Config */
-s.currencyCode="CZK"
+s.currencyCode="USD"
 /* Link Tracking Config */
 s.trackDownloadLinks=true
 s.trackExternalLinks=false
