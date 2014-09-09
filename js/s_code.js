@@ -23,7 +23,9 @@ s.linkTrackEvents="None"
 changes to how your visitor data is collected.  Changes should only be
 made when instructed to do so by your account manager.*/
 s.visitorNamespace="etnetera"
-s.trackingServer="etnetera.d2.sc.omtrdc.net"
+//s.trackingServer="etnetera.d2.sc.omtrdc.net"
+s.trackingServer="om.etnetera.cz"
+s.trackingServerSecure="som.etnetera.cz"
 
 /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
 var s_code='',s_objectID;function s_gi(un,pg,ss){var c="s.version='H.27.2';s.an=s_an;s.logDebug=function(m){var s=this,tcf=new Function('var e;try{console.log(\"'+s.rep(s.rep(s.rep(m,\"\\\\\",\"\\\\"
