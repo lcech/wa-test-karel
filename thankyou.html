@@ -19,7 +19,11 @@
 <body>
     <!--Fingerprint-->
     <script>
-        var fp = new Fingerprint({canvas: true, ie_activex: true});
+        var fp_kompl = new Fingerprint({canvas: true, ie_activex: true, screen_resolution: true});
+        var fp_bez_scr = new Fingerprint({canvas: true, ie_activex: true});
+        var fp_bez_can = new Fingerprint({ie_activex: true, screen_resolution: true});
+        var fp_jen_prohl = new Fingerprint({ie_activex: true});
+        var fp_base = new Fingerprint();
     </script>    
     <!--/Fingerprint-->
     <script> // parsování URL
@@ -98,8 +102,12 @@
       s.events="purchase";
       s.products=";"+params.destination+";"+pocet+";"+totalCost;
       s.purchaseID=ecomID;
-      s.eVar2=fp.get();
+      s.eVar2=fp_kompl.get();
       s.eVar3=s.gfid();
+      s.eVar4=fp_bez_scr.get();
+      s.eVar5=fp_bez_can.get();
+      s.eVar6=fp_jen_prohl.get();
+      s.eVar7=fp_base.get();
       /************* DO NOT ALTER ANYTHING BELOW THIS LINE ! **************/
       var s_code=s.t();if(s_code)document.write(s_code)//--></script>
       <script language="JavaScript" type="text/javascript"><!--
